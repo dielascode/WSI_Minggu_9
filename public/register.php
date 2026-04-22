@@ -1,3 +1,25 @@
+<?php 
+require_once "../config/koneksi.php";
+require_once '../class/auth.php';
+
+$db = new Database();
+$conn = $db->getConnection();
+$auth = new Auth($conn);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if ($auth->register($name, $email, $password)) {
+        header("Location: login.php");
+        exit;
+    }else{
+        $error = "Pendaftaran gagal. email sudah terdaftar!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +36,10 @@
     <div class="card shadow-sm" style="width: 100%; max-width: 400px;">
         <div class="card-body p-4">
             <h3 class="card-title text-center mb-4">Register</h3>
+
+            <?php  if(isset($error)) : ?>
+                <p style="color:red"><?php echo $error?></p>
+            <?php  endif; ?>
             
             <form action="" method="post">
                 <div class="mb-3">

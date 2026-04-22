@@ -114,8 +114,8 @@ if (!isset($_SESSION['login'])) {
           <ul class="navbar-nav ms-auto">
             <!--begin::Navbar Search-->
             <li class="nav-item">
-              <a class="nav-link" data-widget="navbar-search" href="../../logout.php" role="button">
-                <i class="bi bi-search"></i>
+              <a class="nav-link" href="../../logout.php" role="button">
+                <i class="bi bi-arrow-right"></i>
               </a>
             </li>
             <!--end::Navbar Search-->

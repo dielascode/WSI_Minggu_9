@@ -37,7 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <div class="card shadow-sm" style="width: 100%; max-width: 400px;">
         <div class="card-body p-4">
             <h3 class="card-title text-center mb-4">Login</h3>
-            
+            <?php  if(isset($error)) : ?>
+                <p style="color:red"><?php echo $error?></p>
+            <?php  endif; ?>
             <form action="" method="post">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
