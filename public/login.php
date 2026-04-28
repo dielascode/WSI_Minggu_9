@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $password = $_POST['password'] ?? '';
 
     if ($auth->login($email, $password)) {
-        header("Location: ../public/admin/dist/index.php");
+        header("Location: ../public/admin/index.php");
         session_regenerate_id(true);
         $_SESSION['login'] = true;
     }else{
